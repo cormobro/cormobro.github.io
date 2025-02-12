@@ -61,28 +61,30 @@
   opacity: 0;
 }
 
-/* Ensure arrows default to fully visible */
 .arrow {
-  background: rgb(227, 101, 11);;
-  color: #ffffff;
+  background: rgb(227, 101, 11);
+  color: #f4f4f4;
   border: none;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 24px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  cursor: default;
+  transition: all 0.3s ease; /* Simplified transition property */
   position: absolute;
   z-index: 10;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transform: scale(1);
+  /* Add subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .arrow:hover {
-  background: rgb(227, 101, 11);;
+  transform: scale(1.2); /* Uniform scaling */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Enhanced shadow on hover */
 }
 
-/* Positioning for arrows on the About Me page */
+/* Remove individual transform properties from positioning classes */
 .arrows .arrow.right {
   top: 50%;
   right: 20px;
@@ -95,32 +97,19 @@
   transform: translateX(-50%);
 }
 
-.arrows .arrow.left {
-  top: 50%;
-  left: 20px;
-  transform: translateY(-50%);
-}
-
-/* Position for the top arrow on other pages */
 .arrow.top {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* New styling for back arrow buttons on non-About pages */
-.arrow.back.left {
+/* Keep existing positioning but add hover scaling */
+.arrow.left {
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
 }
-.arrow.back.right {
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
 
-/* New styling for bottom corner arrow buttons */
 .arrow.bottom-left {
   bottom: 20px;
   left: 20px;
@@ -131,23 +120,42 @@
   right: 20px;
 }
 
-/* New positioning for top corner back buttons */
 .arrow.back.top-left {
   top: 20px;
   left: 20px;
-  transform: none;
 }
+
 .arrow.back.top-right {
   top: 20px;
   right: 20px;
-  transform: none;
 }
 
-/* New positioning for bottom-right back button */
-.arrow.back.bottom-right {
-  bottom: 20px;
-  right: 20px;
-  transform: none;
+/* Add hover scaling for all arrows */
+.arrow:hover {
+  transform: translateY(-50%) scale(1.2); /* For vertically centered arrows */
+}
+
+.arrow.bottom:hover {
+  transform: translateX(-50%) scale(1.2); /* For horizontally centered bottom arrow */
+}
+
+.arrow.top:hover {
+  transform: translateX(-50%) scale(1.2); /* For top arrow */
+}
+
+.arrow.left:hover {
+  transform: translateY(-50%) scale(1.2); /* For left arrow */
+}
+
+.arrow.right:hover {
+  transform: translateY(-50%) scale(1.2); /* For left arrow */
+}
+
+.arrow.bottom-left:hover,
+.arrow.bottom-right:hover,
+.arrow.back.top-left:hover,
+.arrow.back.top-right:hover {
+  transform: scale(1.2); /* For corner arrows without translation */
 }
 
 /* Optionally, style headings and paragraphs */
